@@ -1,0 +1,22 @@
+name: External Repo Integration
+
+on:
+  push:
+    branches:
+      - main # or the branch you are interested in
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout External Repo
+        uses: actions/checkout@v3
+        with:
+          repository: external-org/external-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run a script
+        run: |
+          echo "This is where your commands will go"
+          # Add any commands or scripts you want to execute
